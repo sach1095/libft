@@ -10,7 +10,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-int		dico(char c, char const *set)
+int		in_dico(char c, char const *set)
 {
 	size_t	i;
 
@@ -34,8 +34,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = 0;
 	a = 0;
 	z = ft_strlen(s1);
-	while (s1[a++] && dico(s1[a], set));
-	while (z-- > a && dico(s1[z - 1], set));
+	while (s1[a++] && in_dico(s1[a], set));
+	while (z-- > a && in_dico(s1[z - 1], set));
 	if (!(str = (char*)malloc(sizeof(char) * (z - a + 1))))
 		return (NULL);
 	while (a < z)

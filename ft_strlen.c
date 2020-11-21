@@ -9,7 +9,6 @@
 /*   Updated: 2020/09/09 14:01:40 by sbaranes         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
 size_t	ft_strlen(const char *str)
