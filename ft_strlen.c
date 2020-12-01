@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaranes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/09 14:01:38 by sbaranes          #+#    #+#             */
-/*   Updated: 2020/09/09 14:01:40 by sbaranes         ###   ########lyon.fr   */
+/*   Created: 2020/11/23 13:41:58 by sbaranes          #+#    #+#             */
+/*   Updated: 2020/11/23 13:41:59 by sbaranes         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 size_t	ft_strlen(const char *str)

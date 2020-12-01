@@ -1,19 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sbaranes <sbaranes@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/23 13:38:22 by sbaranes          #+#    #+#             */
+/*   Updated: 2020/11/30 19:37:17 by sbaranes         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+void	ft_itoa_lol(int nb, char **str, char *base, int i)
 {
-	size_t i;
+	long	nbr;
+	int		t_base;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-void	ft_itoa_lol(int nb, char **str, int t_base, char *base, int i)
-{
-	int long nbr = nb;
-
+	nbr = nb;
+	t_base = 10;
 	if (nbr < 0)
 	{
 		str[0][i] = '-';
@@ -23,15 +28,17 @@ void	ft_itoa_lol(int nb, char **str, int t_base, char *base, int i)
 	str[0][i] = base[nbr % t_base];
 	str[0][i + 1] = '\0';
 	if ((nbr / t_base) > 0)
-		ft_itoa_lol((nbr / t_base), str, t_base, base, i + 1);
+		ft_itoa_lol((nbr / t_base), str, base, i + 1);
 }
 
 char	*ft_rev(char *str, int size)
 {
-	int i = 0;
-	int x = size - 1;
-	int temp;
+	int		i;
+	int		x;
+	int		temp;
 
+	x = size - 1;
+	i = 0;
 	if (str[0] == '-')
 		i++;
 	while (i < x)
@@ -45,17 +52,40 @@ char	*ft_rev(char *str, int size)
 	return (str);
 }
 
+int		count_tnum(int nbr)
+{
+	int		size;
+	long	nb;
+
+	nb = nbr;
+	size = 1;
+	if (nb < 0)
+	{
+		size++;
+		nb = -nb;
+	}
+	while (nb >= 10)
+	{
+		size++;
+		nb /= 10;
+	}
+	return (size);
+
+}
+
 char	*ft_itoa(int nb)
 {
-	char *str;
-	char *base;
+	char	*str;
+	char	*base;
+	int		t_str;
+	int		t_malloc;
 
 	base = "0123456789";
-	int t_base = ft_strlen(base);
-	if (!(str = (char *)malloc(sizeof(char) * 34)))
+	t_malloc = count_tnum(nb);
+	if (!(str = (char *)malloc(sizeof(char) * (t_malloc + 1))))
 		return (0);
-	ft_itoa_lol(nb, &str, t_base, base, 0);
-	int t_str = ft_strlen(str);
+	ft_itoa_lol(nb, &str, base, 0);
+	t_str = ft_strlen(str);
 	str = ft_rev(str, t_str);
 	return (str);
 }

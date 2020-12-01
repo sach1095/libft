@@ -1,13 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sbaranes <sbaranes@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/23 13:42:59 by sbaranes          #+#    #+#             */
+/*   Updated: 2020/11/30 19:38:33 by sbaranes         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-size_t		ft_strlen(const char *str)
+char		**free_all(char **dest, int i)
 {
-	size_t i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	while (i > 0)
+	{
+		i--;
+		free((void *)dest[i]);
+	}
+	free(dest);
+	return (NULL);
 }
 
 size_t		count_split(char const *s, char c)
@@ -27,6 +40,33 @@ size_t		count_split(char const *s, char c)
 			i++;
 	}
 	return (count);
+}
+
+char		**malloc_dest(char **dest, char const *s, char c, size_t count)
+{
+	size_t	i;
+	size_t	t_malloc;
+	size_t	re_count;
+
+	i = 0;
+	re_count = 0;
+	if (!(dest = (char**)malloc(sizeof(char*) * (count + 1))))
+		return (0);
+	while (s[i] && re_count < count)
+	{
+		while (s[i] == c && s[i])
+			i++;
+		t_malloc = 0;
+		while (s[i] != c && s[i])
+		{
+			t_malloc++;
+			i++;
+		}
+		if (!(dest[re_count] = (char*)malloc(sizeof(char) * (t_malloc + 1))))
+			return (free_all(dest, re_count));
+		re_count++;
+	}
+	return (dest);
 }
 
 char		**split_split(char const *s, char c, char **dest, size_t count)
@@ -57,23 +97,15 @@ char		**split_split(char const *s, char c, char **dest, size_t count)
 
 char		**ft_split(char const *s, char c)
 {
-	size_t i;
-	size_t count;
-	char **dest;
+	size_t		count;
+	char		**dest;
 
+	if (!s)
+		return (NULL);
+	dest = NULL;
 	count = count_split(s, c);
-	i = 0;
-	if (!(dest = (char**)malloc(sizeof(char*) * (count + 1))))
-		return (0);
-	while (i != count)
-	{
-		if (!(dest[i] = (char*)malloc(sizeof(char) * ft_strlen(s) + 1)))
-			return (0);
-		i++;
-	}
-	if (!(dest[i] = (char *)malloc(sizeof(char))))
-		return (0);
-	dest[i] = 0;
+	dest = malloc_dest(dest, s, c, count);
+	dest[count] = 0;
 	dest = split_split(s, c, dest, count);
 	return (dest);
 }

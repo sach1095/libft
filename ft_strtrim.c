@@ -1,14 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sbaranes <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/23 13:39:03 by sbaranes          #+#    #+#             */
+/*   Updated: 2020/11/23 13:39:06 by sbaranes         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-
-size_t	ft_strlen(const char *str)
-{
-	size_t i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
 
 int		in_dico(char c, char const *set)
 {
@@ -31,11 +33,15 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	a;
 	size_t	z;
 
+	if (!s1 || !set)
+		return (NULL);
 	i = 0;
 	a = 0;
 	z = ft_strlen(s1);
-	while (s1[a++] && in_dico(s1[a], set));
-	while (z-- > a && in_dico(s1[z - 1], set));
+	while (s1[a] && in_dico(s1[a], set))
+		a++;
+	while (z > a && in_dico(s1[z - 1], set))
+		z--;
 	if (!(str = (char*)malloc(sizeof(char) * (z - a + 1))))
 		return (NULL);
 	while (a < z)

@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaranes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/17 20:19:01 by sbaranes          #+#    #+#             */
-/*   Updated: 2020/09/17 20:19:04 by sbaranes         ###   ########lyon.fr   */
+/*   Created: 2020/11/23 13:36:34 by sbaranes          #+#    #+#             */
+/*   Updated: 2020/11/23 13:36:38 by sbaranes         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <stdlib.h>
 
 char	*ft_strdup(const char *src)
