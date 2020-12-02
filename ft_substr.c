@@ -11,25 +11,25 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char    *ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	unsigned int x;
+    unsigned int x;
 
-	x = 0;
-	while (src[x] && x < n)
-	{
-		dest[x] = src[x];
-		x++;
-	}
-	dest[x] = '\0';
-	return (dest);
+    x = 0;
+    while (src[x] && x < n)
+    {
+        dest[x] = src[x];
+        x++;
+    }
+    dest[x] = '\0';
+    return (dest);
 }
 
 char    *ft_substr(char const *s, unsigned int start, size_t len)
 {
     char    *str;
+    size_t  size;
 
     if (!s)
         return (NULL);
@@ -39,7 +39,11 @@ char    *ft_substr(char const *s, unsigned int start, size_t len)
         return (ft_calloc(1, 1));
     else
     {
-        if (!(str = malloc(sizeof(char)* (ft_strlen(s + start)))))
+        if (len < ft_strlen(s + start))
+            size = len + 1;
+        else
+            size = ft_strlen(s + start);
+        if (!(str = malloc(sizeof(char)* size)))
             return (NULL);
         str = ft_strncpy(str, (char *)(s + start), len);
     }

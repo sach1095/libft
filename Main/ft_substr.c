@@ -26,5 +26,26 @@ int main()
 	res = ft_substr(s, st, l);
 	printf(" test 1 : %s.\n", res);
 
+}
 
+#include <stdio.h>
+int ft_main()
+{
+	char *res = NULL;
+	char *s = "demacia";
+	unsigned int st = 1;
+	size_t l = 1;
+	res = ft_substr(s, st, l);
+	printf(" test 1 : %s.\n", res);
+	free(res);
+}
+
+int main()
+{
+	ft_main();
+	while (1)
+	{
+		/* code */
+	}
+	return (0);
 }
