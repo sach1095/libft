@@ -12,37 +12,22 @@
 
 #include "libft.h"
 
-static void	*ft_calloc_2(size_t size)
-{
-	char	*dest;
-	size_t	i;
-
-	if (!(dest = malloc(sizeof(char) * size)))
-		return (NULL);
-	i = 0;
-	while (i < size)
-	{
-		dest[i] = 0;
-		i++;
-	}
-	return (dest);
-}
-
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
 	char	*str;
 
 	i = 0;
+	if (!s)
+		return (NULL);
+	if (start == 0 && len > ft_strlen(s))
+		return (ft_strdup(s));
 	if (start > ft_strlen(s))
-		return (ft_calloc_2(1));
-	if (!s || !(str = ft_calloc_2(ft_strlen(s) - start + 1)))
+		return (ft_calloc(1, 1));
+	if (!(str = malloc(sizeof(char)* (ft_strlen(s + start) + 1))))
 		return (NULL);
 	while (i < len)
-	{
-		str[i] = s[start + i];
-		i++;
-	}
+		ft_memcpy(str, s, ft_strlen(s + start));
 	str[i] = '\0';
 	return (str);
 }
