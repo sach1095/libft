@@ -17,4 +17,14 @@ int main()
 	free(res);
 	free(res1);
 	return (0);
+
+
+	char *res = NULL;
+	char *s = "tripouille";
+	unsigned int st = 1;
+	size_t l = 1;
+	res = ft_substr(s, st, l);
+	printf(" test 1 : %s.\n", res);
+
+
 }
