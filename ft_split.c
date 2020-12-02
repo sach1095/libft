@@ -109,19 +109,3 @@ char		**ft_split(char const *s, char c)
 	dest = split_split(s, c, dest, count);
 	return (dest);
 }
-
-#include <stdio.h>
-int main()
-{
-	char *s = "        lolll     42    ";
-	char sep = ' ';
-	char **dest = ft_split(s, sep);
-	int i = 0;
-	while (i < 2)
-	{
-		printf(" %s\n", dest[i]);
-		i++;
-	}
-	free_all(dest, i);
-	return (0);
-}

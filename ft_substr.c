@@ -32,14 +32,20 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
 	size_t	x;
+	size_t	size_malloc;
 	char	*str;
 
-	i = 0;
+	i = start;
 	x = 0;
-	if (!s)
+	size_malloc = 0;
+	if (!s || !(str = ft_calloc_2(ft_strlen(s + 1))))
 		return (NULL);
-	if (!(str = ft_calloc_2(ft_strlen(s + 1))));
-		return (NULL);
+	while (s[i])
+	{
+		size_malloc++;
+		i++;
+	}
+
 	
 	str[x] = '\0';
 	return (str);
