@@ -6,7 +6,7 @@
 /*   By: sbaranes <sbaranes@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 13:38:22 by sbaranes          #+#    #+#             */
-/*   Updated: 2020/11/30 19:37:17 by sbaranes         ###   ########lyon.fr   */
+/*   Updated: 2020/12/02 18:50:12 by sbaranes         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ int		count_tnum(int nbr)
 		nb /= 10;
 	}
 	return (size);
-
 }
 
 char	*ft_itoa(int nb)
