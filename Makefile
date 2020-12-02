@@ -16,7 +16,7 @@ SRCS =  ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
 BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
 		ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
-FLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 OBJS = $(SRCS:.c=.o)
 
@@ -25,7 +25,7 @@ BONUS_OBJS = $(BONUS:.c=.o)
 all:	$(NAME)
 
 %.o: %.c $(HEADER)
-			gcc $(FLAGS)  -c $< -o $@
+			gcc $(CFLAGS)  -c $< -o $@
 
 $(NAME): $(OBJS) $(HEADER)
 		ar rcs $(NAME) $(OBJS)

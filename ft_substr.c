@@ -31,22 +31,18 @@ static void	*ft_calloc_2(size_t size)
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
-	size_t	x;
-	size_t	size_malloc;
 	char	*str;
 
-	i = start;
-	x = 0;
-	size_malloc = 0;
-	if (!s || !(str = ft_calloc_2(ft_strlen(s + 1))))
+	i = 0;
+	if (start > ft_strlen(s))
+		return (ft_calloc_2(1));
+	if (!s || !(str = ft_calloc_2(ft_strlen(s) - start + 1)))
 		return (NULL);
-	while (s[i])
+	while (i < len)
 	{
-		size_malloc++;
+		str[i] = s[start + i];
 		i++;
 	}
-
-	
-	str[x] = '\0';
+	str[i] = '\0';
 	return (str);
 }
