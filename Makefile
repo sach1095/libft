@@ -1,20 +1,21 @@
-
-HEADER = ./libft.h
-
 NAME = libft.a
+
+HEADER = srcs/libft.h
 
 CC = gcc
 
-SRCS =  ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
-		ft_tolower.c ft_toupper.c ft_bzero.c ft_memchr.c ft_memcpy.c \
-		ft_memmove.c ft_memset.c ft_memcmp.c ft_calloc.c ft_strdup.c \
-		ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strnstr.c ft_strrchr.c \
-		ft_strchr.c ft_strncmp.c ft_atoi.c ft_substr.c ft_strjoin.c \
-		ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_putchar_fd.c \
-		ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_memccpy.c
+S = srcs/
 
-BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
-		ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+SRCS =  $(S)ft_isalnum.c $(S)ft_isalpha.c $(S)ft_isascii.c $(S)ft_isdigit.c $(S)ft_isprint.c \
+		$(S)ft_tolower.c $(S)ft_toupper.c $(S)ft_bzero.c $(S)ft_memchr.c $(S)ft_memcpy.c \
+		$(S)ft_memmove.c $(S)ft_memset.c $(S)ft_memcmp.c $(S)ft_calloc.c $(S)ft_strdup.c \
+		$(S)ft_strlcat.c $(S)ft_strlcpy.c $(S)ft_strlen.c $(S)ft_strnstr.c $(S)ft_strrchr.c \
+		$(S)ft_strchr.c $(S)ft_strncmp.c $(S)ft_atoi.c $(S)ft_substr.c $(S)ft_strjoin.c \
+		$(S)ft_strtrim.c $(S)ft_split.c $(S)ft_itoa.c $(S)ft_strmapi.c $(S)ft_putchar_fd.c \
+		$(S)ft_putchar_fd.c $(S)ft_putendl_fd.c $(S)ft_putnbr_fd.c $(S)ft_putstr_fd.c $(S)ft_memccpy.c
+
+BONUS = $(S)ft_lstnew.c $(S)ft_lstadd_front.c $(S)ft_lstsize.c $(S)ft_lstlast.c $(S)ft_lstadd_back.c \
+		$(S)ft_lstdelone.c $(S)ft_lstclear.c $(S)ft_lstiter.c $(S)ft_lstmap.c
 
 CFLAGS = -Wall -Wextra -Werror
 
